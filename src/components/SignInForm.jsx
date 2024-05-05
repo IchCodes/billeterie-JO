@@ -7,9 +7,6 @@ import { getToken } from "../utils/getToken";
 
 const SignInForm = () => {
 
-    var usernzme = 'junayd@hichamesraidi.fr';
-    var password = 'toto';
-
     async function handleSubmit(event) {
         event.preventDefault();
 

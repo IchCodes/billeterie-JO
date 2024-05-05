@@ -1,9 +1,24 @@
 import React from 'react'
+import { registerUser} from "../utils/registerUser";
 
 const RegisterForm = () => {
+  
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    var firstName = event.target[0].value;
+    var lastName = event.target[1].value;
+    var username = event.target[2].value;
+    var password = event.target[3].value;
+
+    var result = await registerUser(lastName,firstName,username, password);
+  
+    console.log(result.message);
+  }
+
   return (
     <main class="container form-signin d-flex flex-column justify-content-center align-items-center">
-        <form>
+        <form onSubmit={handleSubmit} > 
           <img
             class="mb-4"
             src="/docs/5.3/assets/brand/bootstrap-logo.svg"
