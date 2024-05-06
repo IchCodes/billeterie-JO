@@ -14,6 +14,8 @@ const RegisterForm = () => {
     var result = await registerUser(lastName,firstName,username, password);
   
     console.log(result.message);
+
+    navigate(-1);
   }
 
   return (
