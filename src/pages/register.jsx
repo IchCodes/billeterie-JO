@@ -8,7 +8,6 @@ const Register = () => {
   return (
     <>
       <Header />
-      <Link to="/login" className="btn btn-outline-primary me-2">Login</Link>
       <RegisterForm />
       <Footer />
     </>
