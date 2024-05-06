@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 export async function getToken(username, password) {
   const url = 'http://localhost:8080/api/v1/auth/login';
@@ -10,9 +11,13 @@ export async function getToken(username, password) {
   try {
     const response = await axios.post(url, body);
     console.log(response)
-    return response.data;
+
+    const cookies = new Cookies(null, { path: '/' });
+    cookies.set('token', response.data.token, { path: '/' });
+
+    return { success: true, message: response.data.message };
+
   } catch (error) {
-    console.error('Error during the request', error);
-    throw error;
+    return { success: false, message: 'Error during the request', error: error };
   }
 }
