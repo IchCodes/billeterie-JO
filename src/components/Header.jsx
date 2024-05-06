@@ -20,8 +20,8 @@ const Header = () => {
       </ul>
 
       <div class="col-md-3 text-end">
-      <Link to="/login" className="btn btn-outline-primary me-2">Login</Link>
-      <Link to="/register" className="btn btn-primary ">Register</Link>
+      <a href="/login" class="btn btn-outline-primary me-2">Login</a>
+      <a href="/register" className="btn btn-primary ">Register</a>
       </div>
     </header>
   )
