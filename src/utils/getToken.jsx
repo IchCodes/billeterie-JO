@@ -2,7 +2,7 @@ import axios from 'axios';
 import Cookies from 'universal-cookie';
 
 export async function getToken(username, password) {
-  const url = 'http://localhost:8080/api/v1/auth/login';
+  const url = `${import.meta.env.VITE_BASE_AUTH_URL}/login`;
   const body = {
     username: username,
     password: password
