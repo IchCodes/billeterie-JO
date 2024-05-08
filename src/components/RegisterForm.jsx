@@ -21,7 +21,7 @@ const RegisterForm = () => {
   return (
     <main class="container form-signin d-flex flex-column justify-content-center align-items-center">
         <form onSubmit={handleSubmit} > 
-          <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+          <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
           <div class="form-floating">
             <input
