@@ -7,7 +7,7 @@ const index = () => {
     <>
       <Header />
 
-      <body>
+      <main>
         <div class="container mt-5">
           <div class="jumbotron">
             <h1 class="display-4">Bienvenue aux Jeux Olympiques 2024 !</h1>
@@ -76,7 +76,7 @@ const index = () => {
             </a>
           </div>
         </div>
-      </body>
+      </main>
       <Footer />
     </>
   );

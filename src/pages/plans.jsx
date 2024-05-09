@@ -6,7 +6,7 @@ const plans = () => {
   return (
     <>
       <Header />
-      <div class="container mt-5">
+      <main class="container mt-5">
         <h1>Nos offres</h1>
         <div class="row">
           <div class="col-md-4">
@@ -58,7 +58,7 @@ const plans = () => {
             </div>
           </div>
         </div>
-      </div>
+      </main>
       <Footer />
     </>
   );
