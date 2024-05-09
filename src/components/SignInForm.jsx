@@ -2,16 +2,18 @@ import axios from "axios";
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import ModalCustom from "./Modal";
+
+import { Modal, Button } from "react-bootstrap";
 
 const SignInForm = () => {
   const { userInfo, login } = useContext(AuthContext);
 
   const [isLoading, setIsLoading] = useState(false);
 
-  const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
 
-  console.log("userInfo:");
-  console.log(userInfo);
+  const navigate = useNavigate();
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -25,10 +27,9 @@ const SignInForm = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 3000);
+    }, 1500);
 
-    console.log(isLoading);
-    console.log(userInfo);
+    setShowModal(true);
 
     //navigate(-1);
   }
@@ -42,7 +43,19 @@ const SignInForm = () => {
   } else if (userInfo !== null) {
     return (
       <main>
-        <div>Connecté</div>
+        <div
+          className="d-flex justify-content-center align-items-center"
+        >
+          <div className="alert alert-info" role="alert">
+            Vous êtes déjà connecté
+          </div>
+        </div>
+        <ModalCustom
+          showModal={showModal}
+          setShowModal={setShowModal}
+          modalBody={userInfo.message}
+          modalTitle="Information"
+        />
       </main>
     );
   } else {
