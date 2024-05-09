@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle, path}) => {
+const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle}) => {
 
     const navigate = useNavigate();
 
@@ -14,7 +14,8 @@ const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle, path}) => 
       <Modal.Body>{modalBody}</Modal.Body>
       <Modal.Footer>
         <Button variant="secondary" onClick={() => {
-            navigate('/');
+            navigate(-1);
+            
             }}>
           Close
         </Button>
