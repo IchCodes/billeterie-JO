@@ -1,7 +1,12 @@
-import React from 'react'
+import React,  {useContext} from 'react'
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 const Header = () => {
+  const {isLoading, userInfo} = useContext(AuthContext);
+
+  console.log("user infor from header")
+  console.log(userInfo)
   return (
     <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
       <div class="col-md-3 mb-2 mb-md-0">
