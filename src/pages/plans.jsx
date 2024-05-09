@@ -1,62 +1,44 @@
-import React from "react";
+import React, { useEffect, useState }from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { getPlans } from "../utils/apiCall";
+import axios from "axios";
 
-const plans = () => {
+const Plans = () => {
+  const [plans, setPlans] = useState([]);
+
+  useEffect(() => {
+    getPlans().then(response => {
+      setPlans(response.data);
+      console.log(response.data)
+      console.log(plans)
+    });
+  }, []);
+
   return (
     <>
       <Header />
-      <main class="container mt-5">
+      <main className="container mt-5">
         <h1>Nos offres</h1>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="card mb-4">
-              <img
-                src="solo2.jpg"
-                class="card-img-top"
-                alt="Gymnastique"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Offre Solo</h5>
-                <p class="card-text">Donne accès à 1 personne.</p>
-                <a href="#" class="btn btn-primary">
-                  Réserver
-                </a>
+        <div className="row">
+          {plans.map((plan) => (
+            <div key={plan.id} className="col-md-4">
+              <div className="card mb-4">
+                <img
+                  src={plan.image_url}
+                  className="card-img-top"
+                  alt={plan.plan}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{plan.plan}</h5>
+                  <p className="card-text">{`Donne accès à ${plan.ticket_quantity} personne.`}</p>
+                  <a href="#" className="btn btn-primary">
+                    Réserver
+                  </a>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-            <img
-                src="duo.jpg"
-                class="card-img-top"
-                alt="Gymnastique"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Offre Duo</h5>
-                <p class="card-text">Donne accès à 2 personnes.</p>
-                <a href="#" class="btn btn-primary">
-                  Réserver
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card mb-4">
-            <img
-                src="family.jpg"
-                class="card-img-top"
-                alt="Gymnastique"
-              />
-              <div class="card-body">
-                <h5 class="card-title">Offre Familiale</h5>
-                <p class="card-text">Donne accès à 4 personnes.</p>
-                <a href="#" class="btn btn-primary">
-                  Réserver
-                </a>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </main>
       <Footer />
@@ -64,4 +46,4 @@ const plans = () => {
   );
 };
 
-export default plans;
+export default Plans;
