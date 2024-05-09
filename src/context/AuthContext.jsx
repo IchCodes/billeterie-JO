@@ -24,7 +24,6 @@ export const AuthProvider = ({ children }) => {
         setUserInfo(response.data);
         const cookies = new Cookies(null, { path: "/" });
         cookies.set("token", response.data.token, { path: "/" });
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error("Error:", error);
@@ -42,6 +41,7 @@ export const AuthProvider = ({ children }) => {
         login,
         userInfo,
         isLoading,
+        setUserInfo
       }}
     >
       {children}
