@@ -25,13 +25,13 @@ const Header = () => {
 
       <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="#" class="nav-link px-2 link-secondary">
+          <a href="/" class="nav-link px-2 link-secondary">
             Home
           </a>
         </li>
         <li>
-          <a href="#" class="nav-link px-2">
-            Features
+          <a href="/plans" class="nav-link px-2">
+            Plans
           </a>
         </li>
         <li>
@@ -59,7 +59,6 @@ const Header = () => {
               onClick={() => {
                 localStorage.removeItem("userInfo");
                 setShowModal(true);
-                setUserInfo(null);
               }}
             >
               Logout
@@ -68,7 +67,6 @@ const Header = () => {
               showModal={showModal}
               modalBody={"Vous avez été déconnecté avec succès"}
               modalTitle="Information"
-              path="/"
             />
           </>
         ) : (
