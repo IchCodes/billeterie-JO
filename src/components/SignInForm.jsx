@@ -7,9 +7,8 @@ import ModalCustom from "./Modal";
 import { Modal, Button } from "react-bootstrap";
 
 const SignInForm = () => {
-  const { userInfo, login } = useContext(AuthContext);
+  const { userInfo, login,isLoading,setIsLoading } = useContext(AuthContext);
 
-  const [isLoading, setIsLoading] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -25,9 +24,14 @@ const SignInForm = () => {
 
     await login(username, password);
 
+    //alert("before setIsLoading(false);")
+
     setTimeout(() => {
       setIsLoading(false);
+      //alert("after setIsLoading(false);")
     }, 1500);
+
+    
 
     setShowModal(true);
 
@@ -54,7 +58,8 @@ const SignInForm = () => {
           showModal={showModal}
           setShowModal={setShowModal}
           modalBody={userInfo.message}
-          modalTitle="Information"
+          modalTitle="Information Connexion"
+          setIsLoading={setIsLoading}
         />
       </main>
     );

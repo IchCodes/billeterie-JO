@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Cookies from "universal-cookie";
 import ModalCustom from "./Modal";
@@ -7,6 +7,12 @@ import ModalLogout from "./ModalLogout";
 const Header = () => {
   const { isLoading, userInfo, setUserInfo } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    //alert("userInfo: " + JSON.stringify(userInfo));
+    //alert("isLoading: " + isLoading);
+  }, [userInfo]);
+
 
   return (
     <header class="container d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">

@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const ModalCustom = ({ showModal, setShowModal, modalBody, modalTitle }) => {
+const ModalCustom = ({ showModal, setShowModal, modalBody, modalTitle,setIsLoading }) => {
   const navigate = useNavigate();
 
   return (
@@ -17,7 +17,7 @@ const ModalCustom = ({ showModal, setShowModal, modalBody, modalTitle }) => {
           onClick={() => {
             setShowModal(false);
             setTimeout(() => {
-              navigate("/");
+              navigate(-1);
             }, 0);
           }}
         >
