@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { registerUser } from "../utils/registerUser";
 
-const RegisterForm = () => {
+const RegisterForm2 = () => {
   const [isRegistering, setisRegistering] = useState(false);
 
   const [isRegistered, setisRegistered] = useState(false);
@@ -112,4 +112,4 @@ const RegisterForm = () => {
   }
 };
 
-export default RegisterForm;
+export default RegisterForm2;

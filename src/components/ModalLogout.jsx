@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 
-const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle}) => {
-
-    const navigate = useNavigate();
+const ModalLogout = ({ showModal, setShowModal, modalBody, modalTitle,path, onLogout }) => {
+  const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
 
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>
@@ -13,11 +14,12 @@ const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle}) => {
       </Modal.Header>
       <Modal.Body>{modalBody}</Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={() => {
-
-            navigate('/');
-            
-            }}>
+        <Button
+          variant="secondary"
+          onClick={() => {  
+            logout();
+          }}
+        >
           Close
         </Button>
       </Modal.Footer>
@@ -25,4 +27,4 @@ const ModalCustom = ({showModal, setShowModal, modalBody, modalTitle}) => {
   );
 };
 
-export default ModalCustom;
+export default ModalLogout;

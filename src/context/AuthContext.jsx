@@ -31,6 +31,12 @@ export const AuthProvider = ({ children }) => {
       });
   };
 
+  const logout = () => {
+    const cookies = new Cookies(null, { path: "/" });
+    cookies.remove("token", { path: "/" });
+    setUserInfo(null);
+  };
+
   useEffect(() => {
     // Stocker les données de l'utilisateur dans le localStorage chaque fois qu'elles changent
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
@@ -41,7 +47,8 @@ export const AuthProvider = ({ children }) => {
         login,
         userInfo,
         isLoading,
-        setUserInfo
+        setUserInfo,
+        logout
       }}
     >
       {children}

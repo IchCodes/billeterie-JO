@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Cookies from "universal-cookie";
 import ModalCustom from "./Modal";
+import ModalLogout from "./ModalLogout";
 
 const Header = () => {
   const { isLoading, userInfo, setUserInfo } = useContext(AuthContext);
@@ -57,16 +58,16 @@ const Header = () => {
             <button
               class="btn btn-outline-primary me-2"
               onClick={() => {
-                localStorage.removeItem("userInfo");
                 setShowModal(true);
               }}
             >
               Logout
             </button>
-            <ModalCustom
+            <ModalLogout
               showModal={showModal}
               modalBody={"Vous avez été déconnecté avec succès"}
               modalTitle="Information"
+              setShowModal={setShowModal}
             />
           </>
         ) : (

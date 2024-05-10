@@ -32,3 +32,21 @@ export async function getPlans() {
     return { success: false, message: 'Error during the request', error: error };
   }
 }
+
+export async function registerUser(lastName,firstName,username, password) {
+  const url = `${import.meta.env.VITE_BASE_AUTH_URL}/register`;
+  const body = {
+    lastName: lastName,
+    firstName: firstName,
+    username: username,
+    password: password
+  };
+
+  try {
+    const response = await axios.post(url, body);
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    console.error('Error during the request', error);
+    throw error;
+  }}
