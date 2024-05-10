@@ -65,7 +65,7 @@ const Header = () => {
             </button>
             <ModalLogout
               showModal={showModal}
-              modalBody={"Vous avez été déconnecté avec succès"}
+              modalBody={"Etes-vous sûr de vouloir vous déconnecter ?"}
               modalTitle="Information"
               setShowModal={setShowModal}
             />
