@@ -1,17 +1,20 @@
-import React, { useEffect, useState }from "react";
+import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getPlans } from "../utils/apiCall";
 import axios from "axios";
+import { useCart } from "react-use-cart";
 
 const Plans = () => {
   const [plans, setPlans] = useState([]);
 
+  const { addItem } = useCart();
+
   useEffect(() => {
-    getPlans().then(response => {
+    getPlans().then((response) => {
       setPlans(response.data);
-      console.log(response.data)
-      console.log(plans)
+      console.log(response.data);
+      console.log(plans);
     });
   }, []);
 
@@ -32,9 +35,12 @@ const Plans = () => {
                 <div className="card-body">
                   <h5 className="card-title">{plan.plan}</h5>
                   <p className="card-text">{`Donne accès à ${plan.ticket_quantity} personne.`}</p>
-                  <a href="#" className="btn btn-primary">
-                    Réserver
-                  </a>
+                  <button
+                    class="btn btn-primary me-2"
+                    onClick={() => {
+                      addItem(plan,1);
+                    }}
+                  >Ajouter au Panier</button>
                 </div>
               </div>
             </div>

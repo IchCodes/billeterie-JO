@@ -4,11 +4,15 @@ import Cookies from "universal-cookie";
 import ModalCustom from "./Modal";
 import ModalLogout from "./ModalLogout";
 import { useLocation } from "react-router-dom";
+import { useCart } from "react-use-cart";
+import ModalCart from "./ModalCart";
 
 const Header = () => {
   const { isLoading, userInfo, setUserInfo } = useContext(AuthContext);
   const [showModal, setShowModal] = useState(false);
+  const [showModalCart, setShowModalCart] = useState(false);
   const location = useLocation();
+  const { items, totalItems, removeItem, updateItemQuantity, emptyCart } = useCart();
 
   useEffect(() => {
     //alert("userInfo: " + JSON.stringify(userInfo));
@@ -95,14 +99,23 @@ const Header = () => {
         <button
           class="btn btn-primary me-2 position-relative"
           onClick={() => {
-            alert("Panier");
+            setShowModalCart(true);
           }}
         >
           <ion-icon name="cart-outline" />
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-            99+
+            {totalItems}
           </span>
         </button>
+        <ModalCart
+          showModal={showModalCart}
+          setShowModal={setShowModalCart}
+          modalTitle="Panier"
+          items={items}
+          updateItemQuantity={updateItemQuantity}
+          emptyCart={emptyCart}
+          removeItem={removeItem}
+        />
       </div>
     </header>
   );

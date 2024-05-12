@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 
-const ModalCustom = ({ showModal, setShowModal, modalBody, modalTitle,setIsLoading }) => {
+const ModalCustom = ({ showModal, setShowModal, modalBody, modalTitle }) => {
   const navigate = useNavigate();
 
   return (
