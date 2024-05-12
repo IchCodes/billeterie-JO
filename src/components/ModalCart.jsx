@@ -70,17 +70,25 @@ const ModalCart = ({
                     </button>
                   </div>
                   <div className="ms-auto">
-                    <span className="card-text m-2">{item.price * item.quantity} €</span>
+                    <span className="card-text m-2">
+                      {item.price * item.quantity} €
+                    </span>
                   </div>
                 </div>
+              </div>
+              <div className="text-center mt-3">
+                <h5>
+                  Total Price:{" "}
+                  {items.reduce(
+                    (total, item) => total + item.price * item.quantity,
+                    0
+                  )}{" "}
+                  €
+                </h5>
               </div>
             </div>
           ))
         )}
-
-        <div className="text-center mt-3">
-          <h5>Total Price: {items.reduce((total, item) => total + (item.price * item.quantity), 0)} €</h5>
-        </div>
       </Modal.Body>
       <Modal.Footer>
         <Button
