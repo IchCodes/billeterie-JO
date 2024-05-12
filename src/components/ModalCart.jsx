@@ -37,39 +37,41 @@ const ModalCart = ({
               <div className="col-md-8">
                 <h5 className="card-title">{item.plan}</h5>
                 <p className="card-text">{`Donne accès à ${item.ticket_quantity} personne.`}</p>
-                <div className="card-text">
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() => {
-                      // Decrease item quantity
-                      // Implement the logic to decrease the item quantity here
-                      updateItemQuantity(item.id, item.quantity - 1);
-                    }}
-                  >
-                    -
-                  </button>
-                  <span className="card-text m-2 ">{item.quantity}</span>
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() => {
-                      // Increase item quantity
-                      // Implement the logic to increase the item quantity here
-                      updateItemQuantity(item.id, item.quantity + 1);
-                    }}
-                  >
-                    +
-                  </button>
-                  <button
-                    class="btn btn-danger ms-2"
-                    onClick={() => {
-                        removeItem(item.id)
-                    }}
-                  >
-                    <ion-icon name="trash" />
-
-                  </button>
-
-                <span className="card-text m-2 ps-5">{item.price * item.quantity} €</span>
+                <div className="card-text d-flex justify-content-between align-items-center">
+                  <div>
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() => {
+                        // Decrease item quantity
+                        // Implement the logic to decrease the item quantity here
+                        updateItemQuantity(item.id, item.quantity - 1);
+                      }}
+                    >
+                      -
+                    </button>
+                    <span className="card-text m-2 ">{item.quantity}</span>
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() => {
+                        // Increase item quantity
+                        // Implement the logic to increase the item quantity here
+                        updateItemQuantity(item.id, item.quantity + 1);
+                      }}
+                    >
+                      +
+                    </button>
+                    <button
+                      class="btn btn-danger ms-2"
+                      onClick={() => {
+                        removeItem(item.id);
+                      }}
+                    >
+                      <ion-icon name="trash" />
+                    </button>
+                  </div>
+                  <div className="ms-auto">
+                    <span className="card-text m-2">{item.price * item.quantity} €</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -77,7 +79,7 @@ const ModalCart = ({
         )}
 
         <div className="text-center mt-3">
-            <h5>Total Price: {items.reduce((total, item) => total + (item.price * item.quantity), 0)} €</h5>
+          <h5>Total Price: {items.reduce((total, item) => total + (item.price * item.quantity), 0)} €</h5>
         </div>
       </Modal.Body>
       <Modal.Footer>
