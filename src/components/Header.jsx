@@ -33,17 +33,32 @@ const Header = () => {
 
       <ul className="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li>
-          <a href="/" className={`nav-link px-2 ${location.pathname === '/' ? 'link-secondary' : ''}`}>
+          <a
+            href="/"
+            className={`nav-link px-2 ${
+              location.pathname === "/" ? "link-secondary" : ""
+            }`}
+          >
             Home
           </a>
         </li>
         <li>
-          <a href="/plans" className={`nav-link px-2 ${location.pathname === '/plans' ? 'link-secondary' : ''}`}>
+          <a
+            href="/plans"
+            className={`nav-link px-2 ${
+              location.pathname === "/plans" ? "link-secondary" : ""
+            }`}
+          >
             Plans
           </a>
         </li>
         <li>
-          <a href="/autre" className={`nav-link px-2 ${location.pathname === '/autre' ? 'link-secondary' : ''}`}>
+          <a
+            href="/autre"
+            className={`nav-link px-2 ${
+              location.pathname === "/autre" ? "link-secondary" : ""
+            }`}
+          >
             Autre
           </a>
         </li>
@@ -72,11 +87,22 @@ const Header = () => {
             <a href="/login" class="btn btn-outline-primary me-2">
               Login
             </a>
-            <a href="/register" className="btn btn-primary ">
+            <a href="/register" className="btn btn-primary me-2">
               Register
             </a>
           </>
         )}
+        <button
+          class="btn btn-primary me-2 position-relative"
+          onClick={() => {
+            alert("Panier");
+          }}
+        >
+          <ion-icon name="cart-outline" />
+          <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+            99+
+          </span>
+        </button>
       </div>
     </header>
   );
