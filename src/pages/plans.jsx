@@ -22,31 +22,35 @@ const Plans = () => {
     <>
       <Header />
       <main className="container mt-5">
-        <h1>Nos offres</h1>
-        <div className="row">
-          {plans.map((plan) => (
-            <div key={plan.id} className="col-md-4">
-              <div className="card mb-4">
-                <img
-                  src={plan.image_url}
-                  className="card-img-top"
-                  alt={plan.plan}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{plan.plan}</h5>
-                  <p className="card-text">{`Donne accès à ${plan.ticket_quantity} personne.`}</p>
-                  <button
-                    class="btn btn-primary me-2"
-                    onClick={() => {
-                      addItem(plan,1);
-                    }}
-                  >Ajouter au Panier</button>
-                </div>
-              </div>
-            </div>
-          ))}
+  <h1>Nos offres</h1>
+  <div className="row">
+    {plans.map((plan) => (
+      <div key={plan.id} className="col-md-4">
+        <div className="card mb-4">
+          <img
+            src={plan.image_url}
+            className="card-img-top"
+            alt={plan.plan}
+          />
+          <div className="card-body">
+            <h5 className="card-title">{plan.plan}</h5>
+            <p className="card-text">{`Donne accès à ${plan.ticket_quantity} personne.`}</p>
+            <p className="card-text">Prix: {plan.price} €</p>
+            <button
+              className="btn btn-primary me-2"
+              onClick={() => {
+                addItem(plan, 1);
+              }}
+            >
+              Ajouter au Panier
+            </button>
+          </div>
         </div>
-      </main>
+      </div>
+    ))}
+  </div>
+</main>
+
       <Footer />
     </>
   );
