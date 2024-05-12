@@ -25,7 +25,8 @@ const ModalCart = ({
         {items.length == 0 ? (
           <p className="text-center">No items in the cart</p>
         ) : (
-          items.map((item) => (
+          <>
+          {items.map((item) => (
             <div key={item.id} className="row">
               <div className="col-md-4 mb-2 ">
                 <img
@@ -76,18 +77,19 @@ const ModalCart = ({
                   </div>
                 </div>
               </div>
-              <div className="text-center mt-3">
-                <h5>
-                  Total Price:{" "}
-                  {items.reduce(
-                    (total, item) => total + item.price * item.quantity,
-                    0
-                  )}{" "}
-                  €
-                </h5>
-              </div>
             </div>
-          ))
+          ))}
+          <div className="text-center mt-3">
+              <h5>
+                Total Price:{" "}
+                {items.reduce(
+                  (total, item) => total + item.price * item.quantity,
+                  0
+                )}{" "}
+                €
+              </h5>
+            </div>
+          </>
         )}
       </Modal.Body>
       <Modal.Footer>
