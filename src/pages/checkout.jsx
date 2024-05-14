@@ -67,19 +67,6 @@ const CheckoutPage = () => {
                 </strong>
               </li>
             </ul>
-
-            <form class="card p-2">
-              <div class="input-group">
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="Promo code"
-                />
-                <button type="submit" class="btn btn-secondary">
-                  Redeem
-                </button>
-              </div>
-            </form>
           </div>
           <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Billing address</h4>
@@ -227,36 +214,83 @@ const CheckoutPage = () => {
 
               <hr class="my-4" />
 
-              <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="same-address"
-                />
-                <label class="form-check-label" for="same-address">
-                  Shipping address is the same as my billing address
-                </label>
-              </div>
-
-              <div class="form-check">
-                <input
-                  type="checkbox"
-                  class="form-check-input"
-                  id="save-info"
-                />
-                <label class="form-check-label" for="save-info">
-                  Save this information for next time
-                </label>
-              </div>
-
-              <hr class="my-4" />
-
               <h4 class="mb-3">Payment</h4>
 
-              <div class="my-3">{/* Méthodes de paiement ici */}</div>
-
+              <div class="my-3">
+                <div class="form-check">
+                  <input
+                    id="credit"
+                    name="paymentMethod"
+                    type="radio"
+                    class="form-check-input"
+                    checked="true"
+                  />
+                  <label class="form-check-label" for="credit">
+                    Credit card
+                  </label>
+                </div>
+              </div>
               <div class="row gy-3">
-                {/* Détails de la carte de crédit ici */}
+                <div class="col-md-6">
+                  <label for="cc-name" class="form-label">
+                    Name on card
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-name"
+                    placeholder=""
+                    required="true"
+                  />
+                  <small class="text-body-secondary">
+                    Full name as displayed on card
+                  </small>
+                  <div class="invalid-feedback">Name on card is required</div>
+                </div>
+
+                <div class="col-md-6">
+                  <label for="cc-number" class="form-label">
+                    Credit card number
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-number"
+                    placeholder=""
+                    required="true"
+                  />
+                  <div class="invalid-feedback">
+                    Credit card number is required
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-expiration" class="form-label">
+                    Expiration
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-expiration"
+                    placeholder=""
+                    required="true"
+                  />
+                  <div class="invalid-feedback">Expiration date required</div>
+                </div>
+
+                <div class="col-md-3">
+                  <label for="cc-cvv" class="form-label">
+                    CVV
+                  </label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="cc-cvv"
+                    placeholder=""
+                    required="true"
+                  />
+                  <div class="invalid-feedback">Security code required</div>
+                </div>
               </div>
 
               <hr class="my-4" />
