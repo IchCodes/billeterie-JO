@@ -11,23 +11,23 @@ const CheckoutPage = () => {
   const { items, totalItems, removeItem, updateItemQuantity, emptyCart } =
     useCart();
 
-    const cookies = new Cookies(null, { path: "/" });
-    const token = cookies.get("token");
-    
-    if (!token) {
-        return (
-            <>
-                <Header />
-                <div class="d-flex justify-content-center align-items-center" >
-  <div class="alert alert-warning" role="alert">
-    Veuillez d'abord vous connecter
-  </div>
-</div>
+  const cookies = new Cookies(null, { path: "/" });
+  const token = cookies.get("token");
 
-                <Footer />
-            </>
-        );
-    }
+  if (!token) {
+    return (
+      <>
+        <Header />
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="alert alert-warning" role="alert">
+            Veuillez d'abord vous connecter
+          </div>
+        </div>
+
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>
