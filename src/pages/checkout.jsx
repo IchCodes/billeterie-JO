@@ -29,6 +29,21 @@ const CheckoutPage = () => {
     );
   }
 
+  if (items.length === 0) {
+    return (
+      <>
+        <Header />
+        <div class="d-flex justify-content-center align-items-center">
+          <div class="alert alert-warning" role="alert">
+            Votre panier est vide
+          </div>
+        </div>
+
+        <Footer />
+      </>
+    );
+  }
+
   return (
     <>
       <Header />
