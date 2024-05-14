@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { getPlans } from "../utils/apiCall";
-import axios from "axios";
 import { useCart } from "react-use-cart";
 import Toast from "react-bootstrap/Toast";
-import Button from "react-bootstrap/Button";
 import { ToastContainer } from "react-bootstrap";
 
 const Plans = () => {
