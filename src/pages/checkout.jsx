@@ -14,6 +14,38 @@ const CheckoutPage = () => {
   const cookies = new Cookies(null, { path: "/" });
   const token = cookies.get("token");
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+
+    const form = event.target;
+    const data = new FormData(form);
+
+    console.log("Form submitted")
+    console.log(event.target)
+    console.log(data)
+
+    const formData = {
+      firstName: data.get("firstName"),
+      lastName: data.get("lastName"),
+      username: data.get("username"),
+      email: data.get("email"),
+      address: data.get("address"),
+      address2: data.get("address2"),
+      country: data.get("country"),
+      state: data.get("state"),
+      zip: data.get("zip"),
+      ccName: data.get("cc-name"),
+      ccNumber: data.get("cc-number"),
+      ccExpiration: data.get("cc-expiration"),
+      ccCvv: data.get("cc-cvv"),
+    };
+
+    console.log(formData);
+    alert("Commande passée avec succès");
+
+    //emptyCart();
+  }
+
   if (!token) {
     return (
       <>
@@ -85,7 +117,7 @@ const CheckoutPage = () => {
           </div>
           <div class="col-md-7 col-lg-8">
             <h4 class="mb-3">Billing address</h4>
-            <form class="needs-validation" novalidate="">
+            <form class="needs-validation" onSubmit={handleSubmit}>
               <div class="row g-3">
                 <div class="row g-3">
                   <div class="col-sm-6">
@@ -97,8 +129,7 @@ const CheckoutPage = () => {
                       class="form-control"
                       id="firstName"
                       placeholder=""
-                      value=""
-                      required=""
+                      required="true"
                     />
                     <div class="invalid-feedback">
                       Valid first name is required.
@@ -114,7 +145,6 @@ const CheckoutPage = () => {
                       class="form-control"
                       id="lastName"
                       placeholder=""
-                      value=""
                       required=""
                     />
                     <div class="invalid-feedback">
@@ -133,7 +163,7 @@ const CheckoutPage = () => {
                         class="form-control"
                         id="username"
                         placeholder="Username"
-                        required=""
+                        required="true"
                       />
                       <div class="invalid-feedback">
                         Your username is required.
