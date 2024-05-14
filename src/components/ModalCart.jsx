@@ -103,14 +103,18 @@ const ModalCart = ({
         >
           Clear Cart
         </Button>
-        <Button
-          variant="secondary"
-          onClick={() => {
-            setShowModal(false);
-          }}
-        >
-          Close
-        </Button>
+        {items.length > 0 && (
+          <Button
+            variant="primary"
+            href="/checkout"
+            onClick={() => {
+              setShowModal(false);
+            }}
+          >
+            Checkout
+          </Button>
+        )}
+        
       </Modal.Footer>
     </Modal>
   );
