@@ -1,7 +1,6 @@
 import React, { useContext, useState, useEffect } from "react";
 import { AuthContext } from "../context/AuthContext";
 import Cookies from "universal-cookie";
-import ModalCustom from "./Modal";
 import ModalLogout from "./ModalLogout";
 import { useLocation } from "react-router-dom";
 import { useCart } from "react-use-cart";
