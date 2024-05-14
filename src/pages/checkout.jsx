@@ -128,6 +128,7 @@ const CheckoutPage = () => {
                       type="text"
                       class="form-control"
                       id="firstName"
+                      name="firstName"
                       placeholder=""
                       required="true"
                     />
@@ -144,6 +145,7 @@ const CheckoutPage = () => {
                       type="text"
                       class="form-control"
                       id="lastName"
+                      name="lastName"
                       placeholder=""
                       required=""
                     />
@@ -162,6 +164,7 @@ const CheckoutPage = () => {
                         type="text"
                         class="form-control"
                         id="username"
+                        name="username"
                         placeholder="Username"
                         required="true"
                       />
@@ -179,6 +182,7 @@ const CheckoutPage = () => {
                       type="email"
                       class="form-control"
                       id="email"
+                      name="email"
                       placeholder="you@example.com"
                     />
                     <div class="invalid-feedback">
@@ -194,6 +198,7 @@ const CheckoutPage = () => {
                       type="text"
                       class="form-control"
                       id="address"
+                      name="address"
                       placeholder="1234 Main St"
                       required=""
                     />
@@ -211,6 +216,7 @@ const CheckoutPage = () => {
                       type="text"
                       class="form-control"
                       id="address2"
+                      name="address2"
                       placeholder="Apartment or suite"
                     />
                   </div>
@@ -219,7 +225,7 @@ const CheckoutPage = () => {
                     <label for="country" class="form-label">
                       Country
                     </label>
-                    <select class="form-select" id="country" required="">
+                    <select class="form-select" id="country" name="country" required="">
                       <option value="">Choose...</option>
                       <option>United States</option>
                     </select>
@@ -232,7 +238,7 @@ const CheckoutPage = () => {
                     <label for="state" class="form-label">
                       State
                     </label>
-                    <select class="form-select" id="state" required="">
+                    <select class="form-select" id="state" name="state" required="">
                       <option value="">Choose...</option>
                       <option>California</option>
                     </select>
@@ -249,6 +255,7 @@ const CheckoutPage = () => {
                       type="text"
                       class="form-control"
                       id="zip"
+                      name="zip"
                       placeholder=""
                       required=""
                     />
@@ -284,6 +291,7 @@ const CheckoutPage = () => {
                     type="text"
                     class="form-control"
                     id="cc-name"
+                    name="cc-name"
                     placeholder=""
                     required="true"
                   />
@@ -301,6 +309,7 @@ const CheckoutPage = () => {
                     type="text"
                     class="form-control"
                     id="cc-number"
+                    name="cc-number"
                     placeholder=""
                     required="true"
                   />
@@ -317,6 +326,7 @@ const CheckoutPage = () => {
                     type="text"
                     class="form-control"
                     id="cc-expiration"
+                    name="cc-expiration"
                     placeholder=""
                     required="true"
                   />
@@ -331,6 +341,7 @@ const CheckoutPage = () => {
                     type="text"
                     class="form-control"
                     id="cc-cvv"
+                    name="cc-cvv"
                     placeholder=""
                     required="true"
                   />
