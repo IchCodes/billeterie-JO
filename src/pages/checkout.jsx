@@ -130,11 +130,8 @@ const CheckoutPage = () => {
                       id="firstName"
                       name="firstName"
                       placeholder=""
-                      required="true"
+                      required={true}
                     />
-                    <div class="invalid-feedback">
-                      Valid first name is required.
-                    </div>
                   </div>
 
                   <div class="col-sm-6">
@@ -147,11 +144,8 @@ const CheckoutPage = () => {
                       id="lastName"
                       name="lastName"
                       placeholder=""
-                      required=""
+                      required={true}
                     />
-                    <div class="invalid-feedback">
-                      Valid last name is required.
-                    </div>
                   </div>
 
                   <div class="col-12">
@@ -166,11 +160,8 @@ const CheckoutPage = () => {
                         id="username"
                         name="username"
                         placeholder="Username"
-                        required="true"
+                        required={true}
                       />
-                      <div class="invalid-feedback">
-                        Your username is required.
-                      </div>
                     </div>
                   </div>
 
@@ -185,9 +176,6 @@ const CheckoutPage = () => {
                       name="email"
                       placeholder="you@example.com"
                     />
-                    <div class="invalid-feedback">
-                      Please enter a valid email address for shipping updates.
-                    </div>
                   </div>
 
                   <div class="col-12">
@@ -200,11 +188,8 @@ const CheckoutPage = () => {
                       id="address"
                       name="address"
                       placeholder="1234 Main St"
-                      required=""
+                      required={true}
                     />
-                    <div class="invalid-feedback">
-                      Please enter your shipping address.
-                    </div>
                   </div>
 
                   <div class="col-12">
@@ -225,26 +210,20 @@ const CheckoutPage = () => {
                     <label for="country" class="form-label">
                       Country
                     </label>
-                    <select class="form-select" id="country" name="country" required="">
+                    <select class="form-select" id="country" name="country" required={true}>
                       <option value="">Choose...</option>
                       <option>United States</option>
                     </select>
-                    <div class="invalid-feedback">
-                      Please select a valid country.
-                    </div>
                   </div>
 
                   <div class="col-md-4">
                     <label for="state" class="form-label">
                       State
                     </label>
-                    <select class="form-select" id="state" name="state" required="">
+                    <select class="form-select" id="state" name="state" required={true}>
                       <option value="">Choose...</option>
                       <option>California</option>
                     </select>
-                    <div class="invalid-feedback">
-                      Please provide a valid state.
-                    </div>
                   </div>
 
                   <div class="col-md-3">
@@ -257,9 +236,8 @@ const CheckoutPage = () => {
                       id="zip"
                       name="zip"
                       placeholder=""
-                      required=""
+                      required={true}
                     />
-                    <div class="invalid-feedback">Zip code required.</div>
                   </div>
                 </div>
               </div>
@@ -293,12 +271,11 @@ const CheckoutPage = () => {
                     id="cc-name"
                     name="cc-name"
                     placeholder=""
-                    required="true"
+                    required={true}
                   />
                   <small class="text-body-secondary">
                     Full name as displayed on card
                   </small>
-                  <div class="invalid-feedback">Name on card is required</div>
                 </div>
 
                 <div class="col-md-6">
@@ -311,11 +288,8 @@ const CheckoutPage = () => {
                     id="cc-number"
                     name="cc-number"
                     placeholder=""
-                    required="true"
+                    required={true}
                   />
-                  <div class="invalid-feedback">
-                    Credit card number is required
-                  </div>
                 </div>
 
                 <div class="col-md-3">
@@ -328,9 +302,8 @@ const CheckoutPage = () => {
                     id="cc-expiration"
                     name="cc-expiration"
                     placeholder=""
-                    required="true"
+                    required={true}
                   />
-                  <div class="invalid-feedback">Expiration date required</div>
                 </div>
 
                 <div class="col-md-3">
@@ -343,9 +316,10 @@ const CheckoutPage = () => {
                     id="cc-cvv"
                     name="cc-cvv"
                     placeholder=""
-                    required="true"
+                    pattern="[0-9]{3}"
+                    title="Three digits at back of your card"
+                    required={true}
                   />
-                  <div class="invalid-feedback">Security code required</div>
                 </div>
               </div>
 
