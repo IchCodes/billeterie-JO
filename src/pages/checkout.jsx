@@ -6,6 +6,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { jwtDecode } from "jwt-decode";
 import Cookies from "universal-cookie";
+import { sendIds } from "../utils/apiCall";
 
 const CheckoutPage = () => {
   const { items, totalItems, removeItem, updateItemQuantity, emptyCart } =
@@ -43,7 +44,11 @@ const CheckoutPage = () => {
     console.log(formData);
     alert("Commande passée avec succès");
 
-    //emptyCart();
+    let result = await sendIds(items);
+
+    console.log(result);
+
+    emptyCart();
   }
 
   if (!token) {

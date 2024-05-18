@@ -50,3 +50,31 @@ export async function registerUser(lastName,firstName,username, password) {
     console.error('Error during the request', error);
     throw error;
   }}
+
+
+  export async function sendIds(items) {
+    const url = `${import.meta.env.VITE_BASE_TICKETS_URL}/book`;
+    const plan_id = items.flatMap(item => Array(item.quantity).fill(item.id));
+  
+    const body = {
+      plan_id: plan_id
+    };
+  
+    const cookies = new Cookies(null, { path: '/' });
+    const token = cookies.get('token'); // replace 'token' with your actual cookie name
+
+    console.log(token)
+  
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+  
+    try {
+      const response = await axios.post(url, body, config);
+      console.log(response);
+      return response.data;
+    } catch (error) {
+      console.error('Error during the request', error);
+      return error;
+    }
+  }
