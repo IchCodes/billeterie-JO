@@ -103,7 +103,7 @@ const CheckoutPage = () => {
                 >
                   <div>
                     <h6 class="my-0">{item.plan}</h6>
-                    <small class="text-body-secondary">Brief description</small>
+                    <small class="text-body-secondary">x{item.quantity}</small>
                   </div>
                   <span class="text-body-secondary">{item.price} €</span>
                 </li>
