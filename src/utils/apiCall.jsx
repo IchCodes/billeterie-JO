@@ -78,3 +78,22 @@ export async function registerUser(lastName,firstName,username, password) {
       return error;
     }
   }
+
+  export async function getOrders() {
+    const url = `${import.meta.env.VITE_BASE_TICKETS_URL}/user`;
+  
+    const cookies = new Cookies(null, { path: '/' });
+    const token = cookies.get('token'); // replace 'token' with your actual cookie name
+  
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+  
+    try {
+      const response = await axios.get(url, config);
+      return response.data;
+    } catch (error) {
+      console.error('Error during the request', error);
+      return null;
+    }
+  }
