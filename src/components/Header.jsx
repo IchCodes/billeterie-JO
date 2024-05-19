@@ -27,7 +27,7 @@ const Header = () => {
           class="d-inline-flex link-body-emphasis text-decoration-none"
         >
           <img
-            src="/public/logo-officiel-JO-Paris-2024.webp"
+            src="/public/logo.webp"
             alt="logo"
             width="100"
             height="auto"

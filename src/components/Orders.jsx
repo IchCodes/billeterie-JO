@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { getOrders } from "../utils/apiCall";
+import ModalScan from "./ModalScan";
 
 const Orders = () => {
   const [orders, setOrders] = useState(null);
-
+  const [showModalOrders, setShowModalOrders] = useState(false);
+  const [currentOrder, setCurrentOrder] = useState(null);
   useEffect(() => {
     getOrders().then((response) => {
       const ordersByOrderId = response.reduce((acc, order) => {
@@ -53,14 +55,27 @@ const Orders = () => {
                           <br />
                           <strong>Détenteur: {order.owner}</strong>
                         </div>
-                        <a
+                        <button
                           className="btn btn-primary me-2 position-relative"
                           href="/account"
+                          onClick={() => {
+                            setShowModalOrders(true);
+                            setCurrentOrder(order);
+                          }}
                         >
-                          <ion-icon name="scan"/>
-                        </a>
+                          <ion-icon name="download" />
+                        </button>
                       </div>
                     ))}
+
+                    {currentOrder && (
+                      <ModalScan
+                        showModal={showModalOrders}
+                        order={currentOrder}
+                        modalTitle="Information"
+                        setShowModal={setShowModalOrders}
+                      />
+                    )}
                     <hr className="my-4" />
                   </div>
                 </div>
