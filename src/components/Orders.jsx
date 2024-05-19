@@ -6,6 +6,8 @@ const Orders = () => {
   const [orders, setOrders] = useState(null);
   const [showModalOrders, setShowModalOrders] = useState(false);
   const [currentOrder, setCurrentOrder] = useState(null);
+  const [collapsed, setCollapsed] = useState(true);
+  
   useEffect(() => {
     getOrders().then((response) => {
       const ordersByOrderId = response.reduce((acc, order) => {
@@ -35,6 +37,8 @@ const Orders = () => {
                     data-bs-target={`#collapse${orderId}`}
                     aria-expanded="false"
                     aria-controls={`collapse${orderId}`}
+                    onClick={() => setCollapsed(!collapsed)}
+                    style={collapsed ? {} : { backgroundColor: "#d3c47d" }}
                   >
                     # Commande numéro {orderId}
                   </button>
@@ -50,21 +54,46 @@ const Orders = () => {
                         key={order.ticket_id}
                         className="d-flex justify-content-between align-items-center mb-3 p-3 border rounded"
                       >
-                        <div>
-                          <strong>Formule: {order.plan}</strong>
-                          <br />
-                          <strong>Détenteur: {order.owner}</strong>
+                        <div className="d-flex flex-grow-1 align-items-stretch">
+                          <div className="card mb-3 flex-grow-1">
+                            <div
+                              className="card-header font-weight-bold"
+                              style={{ backgroundColor: "#d3c47d" }}
+                            >
+                              Ticket numéro #{order.ticket_id}
+                            </div>
+                            <div className="card-body p-2">
+                              <div className="input-group has-validation">
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  value={"Détenteur: " + order.owner}
+                                  disabled
+                                  style={{ backgroundColor: "#d3c47d" }}
+                                />
+                              </div>
+                              <div className="input-group has-validation mt-2">
+                                <input
+                                  type="text"
+                                  className="form-control"
+                                  value={"Formule: " + order.plan}
+                                  disabled
+                                  style={{ backgroundColor: "#d3c47d" }}
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <button
+                            className="btn ms-2 mb-3"
+                            style={{ height: "auto", backgroundColor: "#d3c47d" }}
+                            onClick={() => {
+                              setShowModalOrders(true);
+                              setCurrentOrder(order);
+                            }}
+                          >
+                            <ion-icon name="download" size="large"/>
+                          </button>
                         </div>
-                        <button
-                          className="btn btn-primary me-2 position-relative"
-                          href="/account"
-                          onClick={() => {
-                            setShowModalOrders(true);
-                            setCurrentOrder(order);
-                          }}
-                        >
-                          <ion-icon name="download" />
-                        </button>
                       </div>
                     ))}
 
