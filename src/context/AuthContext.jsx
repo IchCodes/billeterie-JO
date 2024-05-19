@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }) => {
       .post(url, body)
       .then((response) => {
         setUserInfo(response.data);
-        const cookies = new Cookies(null, { path: "/" });
+        const cookies = new Cookies(null, { path: "/", maxAge: 3600 });
         cookies.set("token", response.data.token, { path: "/" });
       })
       .catch((error) => {
