@@ -11,7 +11,8 @@ const Header = () => {
   const [showModal, setShowModal] = useState(false);
   const [showModalCart, setShowModalCart] = useState(false);
   const location = useLocation();
-  const { items, totalItems, removeItem, updateItemQuantity, emptyCart } = useCart();
+  const { items, totalItems, removeItem, updateItemQuantity, emptyCart } =
+    useCart();
 
   useEffect(() => {
     //alert("userInfo: " + JSON.stringify(userInfo));
@@ -84,6 +85,12 @@ const Header = () => {
               modalTitle="Information"
               setShowModal={setShowModal}
             />
+            <a
+              class="btn btn-primary me-2 position-relative"
+              href="/account"
+            >
+              <ion-icon name="person" />
+            </a>
           </>
         ) : (
           <>
@@ -101,7 +108,7 @@ const Header = () => {
             setShowModalCart(true);
           }}
         >
-          <ion-icon name="cart-outline" />
+          <ion-icon name="cart" />
           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
             {totalItems}
           </span>
