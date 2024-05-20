@@ -7,7 +7,7 @@ const Orders = () => {
   const [showModalOrders, setShowModalOrders] = useState(false);
   const [currentOrder, setCurrentOrder] = useState(null);
   const [collapsed, setCollapsed] = useState(true);
-  
+
   useEffect(() => {
     getOrders().then((response) => {
       const ordersByOrderId = response.reduce((acc, order) => {
@@ -24,7 +24,9 @@ const Orders = () => {
   return (
     <main>
       <div className="container">
+        <div className="mb-3 p-3 border border-2 rounded">
         <h1 className="text-center">Mes commandes</h1>
+        </div>
         <div className="accordion" id="accordionExample">
           {orders &&
             Object.entries(orders).map(([orderId, orderGroup], index) => (
