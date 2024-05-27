@@ -11,10 +11,10 @@ const ModalCart = ({
   updateItemQuantity,
   emptyCart,
 }) => {
-  ///const { items } = useCart();
-  console.log("first");
-  console.log(items);
-  console.log(items);
+  //const { items } = useCart();
+  //console.log("first");
+  //console.log(items);
+  //console.log(items);
 
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>
