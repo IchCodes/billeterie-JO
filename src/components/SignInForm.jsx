@@ -3,12 +3,15 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
 import ModalCustom from "./Modal";
+import Cookies from "universal-cookie";
 
 import { Modal, Button } from "react-bootstrap";
 
 const SignInForm = () => {
   const { userInfo, login,isLoading,setIsLoading } = useContext(AuthContext);
 
+  const cookies = new Cookies(null, { path: "/" });
+  const token = cookies.get("token");
 
   const [showModal, setShowModal] = useState(false);
 
@@ -44,7 +47,7 @@ const SignInForm = () => {
         <div class="spinner-border" role="status"></div>
       </div>
     );
-  } else if (userInfo !== null) {
+  } else if (token) {
     return (
       <main>
         <div

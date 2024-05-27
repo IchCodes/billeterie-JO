@@ -14,6 +14,9 @@ const Header = () => {
   const { items, totalItems, removeItem, updateItemQuantity, emptyCart } =
     useCart();
 
+    const cookies = new Cookies(null, { path: "/" });
+  const token = cookies.get("token");
+
   useEffect(() => {
     //alert("userInfo: " + JSON.stringify(userInfo));
     //alert("isLoading: " + isLoading);
@@ -69,7 +72,7 @@ const Header = () => {
       </ul>
 
       <div class="col-md-3 text-end">
-        {userInfo && !isLoading ? (
+        {token && !isLoading ? (
           <>
             <button
               class="btn btn-outline-primary me-2"
