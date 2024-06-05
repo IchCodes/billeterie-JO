@@ -97,3 +97,22 @@ export async function registerUser(lastName,firstName,username, password) {
       return null;
     }
   }
+
+  export async function deleteOrder(id) {
+    const url = `${import.meta.env.VITE_BASE_PLANS_URL}/delete/${id}`;
+  
+    const cookies = new Cookies(null, { path: '/' });
+    const token = cookies.get('token'); // replace 'token' with your actual cookie name
+  
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+  
+    try {
+      const response = await axios.delete(url, config);
+      return response.data;
+    } catch (error) {
+      console.error('Error during the request', error);
+      return null;
+    }
+  }
