@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
 import { addPlan, getPlans } from "../utils/apiCall";
 
-const ModalAddPlan = ({ showModal, setShowModal, plan, setPlans}) => {
+const ModalAddPlan = ({ showModal, setShowModal, setPlans}) => {
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>
       <Modal.Header closeButton>

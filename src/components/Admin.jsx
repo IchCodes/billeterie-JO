@@ -3,11 +3,13 @@ import Orders from "./Orders";
 import { getPlans } from "../utils/apiCall";
 import ModalDeletePlan from "./ModalDeletePlan";
 import ModalAddPlan from "./ModalAddPlan";
+import ModalUpdatePlan from "./ModalUpdatePlan";
 
 const Admin = () => {
   const [plans, setPlans] = useState([]);
   const [showModalDeletePlan, setShowModalDeletePlan] = useState(false);
   const [showModalAddPlan, setShowModalAddPlan] = useState(false);
+  const [showModalUpdatePlan, setshowModalUpdatePlan] = useState(false);
   const [currentPlan, setCurrentPlan] = useState(null);
 
   useEffect(() => {
@@ -79,7 +81,13 @@ const Admin = () => {
                           <h5 className="card-title">{plan.plan}</h5>
                           <p className="card-text">{`Donne accès à ${plan.ticket_quantity} personne.`}</p>
                           <p className="card-text">Prix: {plan.price} €</p>
-                          <button className="btn btn-primary me-2 mb-2">
+                          <button
+                            className="btn btn-primary me-2 mb-2"
+                            onClick={() => {
+                              setCurrentPlan(plan);
+                              setshowModalUpdatePlan(true);
+                            }}
+                          >
                             Modifier offre
                           </button>
                           <button
@@ -114,6 +122,13 @@ const Admin = () => {
                   <ModalAddPlan
                     showModal={showModalAddPlan}
                     setShowModal={setShowModalAddPlan}
+                    plan={currentPlan}
+                    setPlans={setPlans}
+                  />
+
+                  <ModalUpdatePlan
+                    showModal={showModalUpdatePlan}
+                    setShowModal={setshowModalUpdatePlan}
                     plan={currentPlan}
                     setPlans={setPlans}
                   />
