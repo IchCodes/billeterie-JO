@@ -1,7 +1,8 @@
 import React from "react";
 import { Button, Modal, Form } from "react-bootstrap";
+import { addPlan, getPlans } from "../utils/apiCall";
 
-const ModalAddPlan = ({ showModal, setShowModal }) => {
+const ModalAddPlan = ({ showModal, setShowModal, plan, setPlans}) => {
   return (
     <Modal show={showModal} onHide={() => setShowModal(false)}>
       <Modal.Header closeButton>
@@ -34,6 +35,14 @@ const ModalAddPlan = ({ showModal, setShowModal }) => {
             const price = formData.get('formPrice');
 
             console.log({ planName, numberPerson, price });
+
+            addPlan(planName, numberPerson, price).then((response) => {
+              console.log(response);
+                getPlans().then((response) => {
+                    setPlans(response.data);
+                });
+                setShowModal(false);
+            });
           }}
         >
           Oui

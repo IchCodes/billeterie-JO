@@ -116,3 +116,28 @@ export async function registerUser(lastName,firstName,username, password) {
       return null;
     }
   }
+
+  export async function addPlan(planName, numberPerson, price) {
+    const url = `${import.meta.env.VITE_BASE_PLANS_URL}/add`;
+    const body = {
+      plan: planName,
+      ticket_quantity: numberPerson,
+      price: price,
+      image_url: "/logo.webp"
+    };
+  
+    const cookies = new Cookies(null, { path: '/' });
+    const token = cookies.get('token'); // replace 'token' with your actual cookie name
+  
+    const config = {
+      headers: { Authorization: `Bearer ${token}` }
+    };
+  
+    try {
+      const response = await axios.post(url, body, config);
+      return response.data;
+    } catch (error) {
+      console.error('Error during the request', error);
+      return null;
+    }
+  }

@@ -114,6 +114,8 @@ const Admin = () => {
                   <ModalAddPlan
                     showModal={showModalAddPlan}
                     setShowModal={setShowModalAddPlan}
+                    plan={currentPlan}
+                    setPlans={setPlans}
                   />
                 </div>
               </div>
