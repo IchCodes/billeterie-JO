@@ -4,6 +4,7 @@ import { getPlans } from "../utils/apiCall";
 import ModalDeletePlan from "./ModalDeletePlan";
 import ModalAddPlan from "./ModalAddPlan";
 import ModalUpdatePlan from "./ModalUpdatePlan";
+import PieChartComponent from "./PieChart";
 
 const Admin = () => {
   const [plans, setPlans] = useState([]);
@@ -137,6 +138,10 @@ const Admin = () => {
             </div>
           </div>
         </div>
+        <div className="mt-3 p-3 border border-2 rounded">
+          <h1 className="text-center">Ventes</h1>
+        </div>
+        <PieChartComponent />
       </div>
     </>
   );
