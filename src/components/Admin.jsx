@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Orders from "./Orders";
-import { getPlans } from "../utils/apiCall";
+import { getPlans, getSales } from "../utils/apiCall";
 import ModalDeletePlan from "./ModalDeletePlan";
 import ModalAddPlan from "./ModalAddPlan";
 import ModalUpdatePlan from "./ModalUpdatePlan";
@@ -8,6 +8,7 @@ import PieChartComponent from "./PieChart";
 
 const Admin = () => {
   const [plans, setPlans] = useState([]);
+  const [salesData, setSalesData] = useState({});
   const [showModalDeletePlan, setShowModalDeletePlan] = useState(false);
   const [showModalAddPlan, setShowModalAddPlan] = useState(false);
   const [showModalUpdatePlan, setshowModalUpdatePlan] = useState(false);
@@ -17,7 +18,12 @@ const Admin = () => {
     getPlans().then((response) => {
       setPlans(response.data);
     });
+    
+    getSales().then((response) => {
+      setSalesData(response);
+    });
   }, []);
+
   return (
     <>
       <div className="container">
@@ -141,7 +147,20 @@ const Admin = () => {
         <div className="mt-3 p-3 border border-2 rounded">
           <h1 className="text-center">Ventes</h1>
         </div>
-        <PieChartComponent />
+        <div className="row">
+          <div className="col-md-6 d-flex align-items-center">
+            <ul className="list-group">
+              {Object.entries(salesData).map(([key, value]) => (
+                <li key={key} className="list-group-item">
+                  {key}: {value}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="col-md-6">
+            <PieChartComponent />
+          </div>
+        </div>
       </div>
     </>
   );
