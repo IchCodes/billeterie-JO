@@ -9,4 +9,5 @@ export default defineConfig({
     Pages({
       dirs: 'src/pages'
     })],
+    
 })

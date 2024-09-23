@@ -5,6 +5,7 @@ import ModalLogout from "./ModalLogout";
 import { useLocation } from "react-router-dom";
 import { useCart } from "react-use-cart";
 import ModalCart from "./ModalCart";
+import logo from "../assets/images/logo.webp";
 
 const Header = () => {
   const { isLoading, userInfo, setUserInfo } = useContext(AuthContext);
@@ -30,7 +31,7 @@ const Header = () => {
           class="d-inline-flex link-body-emphasis text-decoration-none"
         >
           <img
-            src="/public/logo.webp"
+            src={logo}
             alt="logo"
             width="100"
             height="auto"
