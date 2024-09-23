@@ -38,7 +38,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // Stocker les données de l'utilisateur dans le localStorage chaque fois qu'elles changent
     localStorage.setItem('userInfo', JSON.stringify(userInfo));
   }, [userInfo]);
   return (

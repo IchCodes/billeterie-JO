@@ -59,16 +59,6 @@ const Header = () => {
             Plans
           </a>
         </li>
-        <li>
-          <a
-            href="/autre"
-            className={`nav-link px-2 ${
-              location.pathname === "/autre" ? "link-secondary" : ""
-            }`}
-          >
-            Autre
-          </a>
-        </li>
       </ul>
 
       <div class="col-md-3 text-end">
